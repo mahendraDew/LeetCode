@@ -1,35 +1,36 @@
 class Solution {
     public boolean isNumber(String s) {
-         int i = 0;
+        int i = 0;
         boolean exp = false, digit = false, dot = false;
-        while (i<s.length()) {
+        while (i < s.length()) {
             char ch = s.charAt(i);
-            if(isDigit(ch)){
+            if (isDigit(ch)) {
                 digit = true;
-            }else if(ch == '-' || ch == '+'){
-                if(i>0 && s.charAt(i-1) != 'e' && s.charAt(i-1) != 'E'){
+            } else if (ch == '-' || ch == '+') {
+                if (i > 0 && s.charAt(i - 1) != 'e' && s.charAt(i - 1) != 'E') {
                     return false;
                 }
-            }else if(ch == 'e' || ch == 'E'){
-                if(exp || !digit){
+            } else if (ch == 'e' || ch == 'E') {
+                if (exp || !digit) {
                     return false;
                 }
                 exp = true;
                 digit = false;
-            }else if(ch == '.'){
-                if(dot || exp){
+            } else if (ch == '.') {
+                if (dot || exp) {
                     return false;
                 }
                 dot = true;
-            }else {
+            } else {
                 return false;
             }
             i++;
         }
         return digit;
     }
-    public static boolean isDigit(char ch){
-        if(ch >= '0' && ch <= '9'){
+
+    public static boolean isDigit(char ch) {
+        if (ch >= '0' && ch <= '9') {
             return true;
         }
         return false;
