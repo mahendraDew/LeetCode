@@ -1,18 +1,18 @@
 class Solution {
     public int numberOfSteps(int num) {
-        return findstep(num, 0);
+        return numOfSteps(num, 0);
     }
-    public int findstep(int num, int step){
-        if(num == 0){
-            return step;
+    public static int numOfSteps(int n, int steps){
+        if(n==0){
+            return steps;
         }
-        if(num%2 == 0){
-            num = num/2; 
-            step++;
-        }else {
-            num = num-1;
-            step++;
+        if(n%2==0){
+            n/=2;
+            steps++;
+        }else{
+            n-=1;
+            steps++;
         }
-        return findstep(num, step);
+        return numOfSteps(n, steps);
     }
 }
