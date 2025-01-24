@@ -6,7 +6,7 @@ class Solution {
             if(ch == '(' || ch == '{' || ch == '['){
                 stack[++i] = ch; 
             }else {
-                if(i>=0 && (stack[i] == '(' && ch == ')') || (stack[i] == '{' && ch == '}') || (stack[i] == '[' && ch == ']')){
+                if(i>=0 && ((stack[i] == '(' && ch == ')') || (stack[i] == '{' && ch == '}') || (stack[i] == '[' && ch == ']'))){
                     i--;
                 }else{
                     return false;
